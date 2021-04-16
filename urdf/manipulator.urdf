@@ -1,29 +1,105 @@
 <?xml version="1.0"?>
 <robot name="lift-arm">
-    <link name="base_link">
-        <visual>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
+
+
+  <link name="base_link">
+    <visual>
+      <origin rpy="0 0 3.142" xyz="0 0 0"/>
         <geometry>
-            <cylinder radius="0.06" length="0.09"/>
+          <mesh filename="package://my_arm_description/models/meshes/collada_files/base.dae"/>
         </geometry>
-        </visual>
-    </link>
+    </visual>
+  </link>
   
-    <link name="main_arm_link">
-        <visual>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
-            <geometry>
-                <cylinder radius="0.06" length="0.09"/>
-            </geometry>
-        </visual>
-    </link>
+
+
+  <link name="main_arm_link">
+    <visual>
+      <origin rpy="1.571 -1.571 1.571" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_arm_description/models/meshes/collada_files/main_arm.dae"/>
+      </geometry>
+    </visual>
+  </link>
     
-    <joint name="main_arm_joint" type="revolute">
-        <parent link="base_link"/>
-        <child link="roll_M1_link"/>
-        <origin xyz="0.0023 0 -0.0005" rpy="0 0 0"/>
-        <limit lower="-0.2" upper="0.2" effort="0.1" velocity="0.005"/>
-        <axis xyz="1 0 0"/>
-    </joint>
+  <joint name="main_arm_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="main_arm_link"/>
+    <origin xyz="0 -0.0095 0.044953" rpy="0 0 1.571"/>
+    <limit lower="-0.2" upper="0.2" effort="0.1" velocity="0.005"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+
+
+
+  <link name="sec_arm_link">
+    <visual>
+      <origin rpy="1.571 0 1.571" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_arm_description/models/meshes/collada_files/sec_arm.dae"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="sec_arm_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="sec_arm_link"/>
+    <origin xyz="0 0.0095 0.044953" rpy="0 0 1.571"/>
+    <limit lower="-0.2" upper="0.2" effort="0.1" velocity="0.005"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+
+
+  <link name="strut_link">
+    <visual>
+      <origin rpy="1.571 0 1.571" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_arm_description/models/meshes/collada_files/strut.dae"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="strut_joint_lower" type="continuous">
+    <parent link="sec_arm_link"/>
+    <child link="strut_link"/>
+    <origin xyz="0.006 0.09 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+
+
+  <link name="upper_arm_link">
+    <visual>
+      <origin rpy="1.571 0 1.571" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_arm_description/models/meshes/collada_files/upper_arm.dae"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="upper_arm_joint" type="revolute">
+    <parent link="main_arm_link"/>
+    <child link="upper_arm_link"/>
+    <origin xyz="0.0095 0 0.18" rpy="0 0 0"/>
+    <limit lower="-0.2" upper="0.2" effort="0.1" velocity="0.005"/>
+    <axis xyz="1 0 0"/>
+  </joint>
   
+
+  <link name="rack_link">
+    <visual>
+      <origin rpy="1.571 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_arm_description/models/meshes/collada_files/rack.dae"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="rack_joint" type="prismatic">
+    <parent link="upper_arm_link"/>
+    <child link="rack_link"/>
+    <origin xyz="0 0 0.033" rpy="0 0 -1.571"/>
+    <limit lower="-0.1" upper="0.15" effort="0.1" velocity="0.005"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+
 </robot>
