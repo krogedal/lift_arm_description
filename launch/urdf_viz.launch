@@ -1,6 +1,6 @@
 <launch>
 
-  <!-- USE: roslaunch my_arm_description urdf_visualize.launch model:='$(find myrobot_package)/urdf/myrobot.urdf' -->
+  <!-- USE: roslaunch my_arm_description urdf_viz.launch model:='$(find my_arm_description)/urdf/manipulator.urdf' -->
   <arg name="model" default=""/>
 
 
