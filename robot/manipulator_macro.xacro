@@ -197,14 +197,14 @@
 			</inertial>
 			
 			<visual>
-				<origin rpy="1.571 0 0" xyz="0 0 0"/>
+				<origin rpy="1.571 0 3.1415" xyz="0 0 0"/>
 				<geometry>
 					<mesh filename="package://lift-arm-description/models/meshes/collada_files/rack.dae"/>
 				</geometry>
 			</visual>
 			
 			<collision>
-				<origin rpy="1.571 0 0" xyz="0 0 0"/>
+				<origin rpy="1.571 0 3.1415" xyz="0 0 0"/>
 				<geometry>
 					<mesh filename="package://lift-arm-description/models/meshes/collada_files/rack.dae"/>
 				</geometry>
@@ -216,7 +216,7 @@
 		<joint name="${prefix}rack_joint" type="prismatic">
 			<parent link="${prefix}upper_arm_link"/>
 			<child link="${prefix}rack_link"/>
-			<origin xyz="0 0 0.033" rpy="0 0 -1.571"/>
+			<origin xyz="0 -0.30 0.033" rpy="0 0 -1.571"/>
 			<limit lower="-0.1" upper="0.15" effort="3.43" velocity="0.0314"/>
 			<axis xyz="1 0 0"/>
 		</joint>
