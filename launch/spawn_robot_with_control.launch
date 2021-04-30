@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+	<include file="$(find lift_arm_description)/launch/spawn_robot.launch"/>
+	<include file="$(find lift_arm_description)/launch/lift_arm_control.launch"/>
+	
+</launch>
+
+

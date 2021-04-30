@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<robot name="lift_arm" xmlns:xacro="http://ros.org/wiki/xacro">
+	
+	
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+			<robotNamespace>/lift_arm</robotNamespace>
+		</plugin>
+	</gazebo>
+
+
+	<xacro:include filename="$(find lift_arm_description)/robot/manipulator_macro.xacro" />
+	<xacro:lift_arm prefix=""/>
+
+	<link name="world"/>
+
+	<joint name="base_mount" type="fixed">
+		<parent link="world"/>
+		<child link="base_link"/>
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+	</joint>
+
+<!--
+
+	<gazebo>
+		<plugin name="gazebo_ros_imu_controller" filename="libgazebo_ros_imu.so">
+			<robotNamespace>/lift_arm</robotNamespace>
+			<topicName>imu/data</topicName>
+			<serviceName>imu/service</serviceName>
+			<bodyName>base_link</bodyName>
+			<gaussianNoise>0</gaussianNoise>
+			<rpyOffsets>0 0 0</rpyOffsets>
+ 			<updateRate>5.0</updateRate>
+			<alwaysOn>true</alwaysOn>
+			<gaussianNoise>0</gaussianNoise>
+		</plugin>
+	</gazebo>
+
+-->
+
+</robot>

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>lift-arm-description</name>
+  <name>lift_arm_description</name>
   <version>0.0.0</version>
-  <description>The lift-arm-description package</description>
+  <description>The lift arm description package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
@@ -75,6 +75,7 @@
   <!-- The export tag contains other, unspecified, tags -->
   <export>
     <!-- Other tools can request additional information be placed here -->
-
+	<gazebo_ros gazebo_model_path="${prefix}/.." />
+		
   </export>
 </package>

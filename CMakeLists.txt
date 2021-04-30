@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(lift-arm-description)
+project(lift_arm_description)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -19,6 +19,10 @@ find_package(catkin REQUIRED COMPONENTS
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
+
+# find_package(gazebo REQUIRED)
+
+# include_directories(include ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE_DIRS} ${SDFormat_INCLUDE_DIRS})
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
