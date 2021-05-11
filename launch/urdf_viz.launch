@@ -7,7 +7,7 @@
   <arg name="model" default="$(find lift_arm_description)/urdf/manipulator.xacro"/>
 
 
-  <param name="robot_description" command="$(find xacro)/xacro '$(find lift-arm-description)/urdf/manipulator.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(find lift_arm_description)/urdf/manipulator.urdf.xacro'" />
 
   <!-- Send fake joint values -->
   <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"/>
