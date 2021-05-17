@@ -66,7 +66,7 @@
 			<parent link="${prefix}base_link"/>
 			<child link="${prefix}main_arm_link"/>
 			<origin xyz="0 -0.0095 0.044953" rpy="0 0 1.571"/>
-			<limit lower="-1.920" upper="1.134" effort="2.236" velocity="7.480"/>
+			<limit lower="-1.658" upper="1.047" effort="2.236" velocity="7.480"/>
 			<axis xyz="1 0 0"/>
 			<dynamics damping="0.7"/>
 		</joint>
@@ -105,7 +105,7 @@
 			<parent link="${prefix}base_link"/>
 			<child link="${prefix}sec_arm_link"/>
 			<origin xyz="0 0.0095 0.044953" rpy="0 0 1.571"/>
-			<limit lower="-0.436" upper="2.531" effort="2.236" velocity="7.480"/>
+			<limit lower="-0.436" upper="2.601" effort="2.236" velocity="7.480"/>
 			<axis xyz="1 0 0"/>
 			<dynamics damping="0.7"/>
 		</joint>
